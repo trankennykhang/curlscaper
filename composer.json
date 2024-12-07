@@ -1,0 +1,22 @@
+{
+  "name": "kupman/curlscraper",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "kenny",
+      "email": "trankennykhang@hotmail.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.0.3",
+    "phpunit/phpunit": "^11.4.4",
+    "friendsofphp/php-cs-fixer": "^v3.65.0"
+
+
+  }
+}
