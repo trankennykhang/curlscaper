@@ -1,6 +1,6 @@
 <?php
 
-namespace scraper\browsers\driver\curl;
+namespace scraper\browsers\drivers\curl;
 
 use scraper\browsers\helpers\PostData;
 use scraper\browsers\helpers\QueryString;
@@ -9,20 +9,20 @@ use scraper\libs\Curl;
 
 class CurlBrowser implements IVirtualBrowser
 {
-
     private $curl;
     public function __construct(string $agent)
     {
         $this->curl = new Curl($agent);
     }
 
-    public function get(string $url, ?QueryString $queryString)
+    public function get(string $url, ?QueryString $queryString): string
     {
         // TODO: Implement get() method.
         $this->curl->setUrl($url);
         $result = $this->curl->execute();
+        return $result;
     }
-    public function post(string $url, ?PostData $postData)
+    public function post(string $url, ?PostData $postData): string
     {
         $defaults = [
             CURLOPT_POST => 1,
@@ -32,23 +32,12 @@ class CurlBrowser implements IVirtualBrowser
             CURLOPT_FORBID_REUSE => 1,
             CURLOPT_TIMEOUT => 4
         ];
-        foreach ($defaults as $k=>$v) {
+        foreach ($defaults as $k => $v) {
             $this->curl->setOption($k, $v);
         }
         $this->curl->setUrl($url);
         $this->curl->setPostData($postData);
 
-        if( ! $result = curl_exec($ch))
-
-        {
-
-        trigger_error(curl_error($ch));
-
-    }
-
-        curl_close($ch);
-
-        return $result;
-
+        return $this->curl->execute();
     }
 }

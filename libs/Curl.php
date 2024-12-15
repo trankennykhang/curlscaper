@@ -1,17 +1,22 @@
 <?php
+
 namespace scraper\libs;
+
 use scraper\browsers\helpers\PostData;
 
 final class Curl
 {
     private $handle = null;
-    public function __construct(string $agent = "", bool $stdout=false)
+    public function __construct(string $agent = "", bool $stdout = false)
     {
         $this->handle = curl_init();
-        if ($agent != "")
+        if ($agent != "") {
             $this->setUserAgent($agent);
+        }
 
-        if (!$stdout) $this->setOption(CURLOPT_RETURNTRANSFER, true);
+        if (!$stdout) {
+            $this->setOption(CURLOPT_RETURNTRANSFER, true);
+        }
     }
     public function setUrl(string $url): void
     {
@@ -19,7 +24,7 @@ final class Curl
     }
     public function setHeaders(array $headers): void
     {
-        $this->setOption( CURLOPT_HTTPHEADER, $headers);
+        $this->setOption(CURLOPT_HTTPHEADER, $headers);
     }
     public function setEncoding(string $encode): void
     {
@@ -40,10 +45,10 @@ final class Curl
     public function execute(): string
     {
         curl_exec($this->handle);
-        if (!$result = curl_exec($this->handle))
-        {
-            trigger_error(curl_error($ch));
+        if (!$result = curl_exec($this->handle)) {
+            trigger_error(curl_error($this->handle));
         }
+        print_r($result);
         return $result;
     }
     public function setOption($option, mixed $value): void

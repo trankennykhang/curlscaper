@@ -17,8 +17,9 @@ abstract class DataObject implements \ArrayAccess
     public function __get(string $name)
     {
         // TODO: Implement __get() method.
-        if (isset($this->arr[$name]))
+        if (isset($this->arr[$name])) {
             return $this->arr[$name];
+        }
         return false;
     }
     public function __set(string $name, $value): void

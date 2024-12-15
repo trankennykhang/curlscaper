@@ -6,5 +6,4 @@ use scraper\browsers\helpers\DataObject;
 
 class PostData extends DataObject
 {
-
 }

@@ -8,4 +8,4 @@ $agent = CurlBrowserHelper::chromeAgentString();
 $browser = CurlBrowserHelper::newCurlBrowser($agent);
 $qs = new QueryString();
 
-$rs = $browser->get("https://moodle.kenny.click", $qs);
+$rs = $browser->get("https://wiki.kenny.click", $qs);
