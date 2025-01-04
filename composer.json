@@ -10,7 +10,9 @@
     }
   ],
   "require": {
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "symfony/dom-crawler": "*",
+    "ext-dom": "*"
   },
   "require-dev": {
     "phpstan/phpstan": "^2.0.3",

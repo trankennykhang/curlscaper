@@ -18,6 +18,10 @@ final class Curl
             $this->setOption(CURLOPT_RETURNTRANSFER, true);
         }
     }
+    public function setCookiePath(string $path)
+    {
+        $this->setOption(CURLOPT_COOKIEJAR, $path);
+    }
     public function setUrl(string $url): void
     {
         $this->setOption(CURLOPT_URL, $url);
@@ -48,7 +52,6 @@ final class Curl
         if (!$result = curl_exec($this->handle)) {
             trigger_error(curl_error($this->handle));
         }
-        print_r($result);
         return $result;
     }
     public function setOption($option, mixed $value): void

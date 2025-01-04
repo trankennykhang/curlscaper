@@ -9,18 +9,19 @@ use scraper\libs\Curl;
 
 class CurlBrowser implements IVirtualBrowser
 {
+    // var Curl $curl
     private $curl;
     public function __construct(string $agent)
     {
         $this->curl = new Curl($agent);
+        $this->curl->setCookiePath('/home/kenny/www/sites/curlscraper/data/cookie/cookie.txt');
     }
 
     public function get(string $url, ?QueryString $queryString): string
     {
         // TODO: Implement get() method.
         $this->curl->setUrl($url);
-        $result = $this->curl->execute();
-        return $result;
+        return $this->curl->execute();
     }
     public function post(string $url, ?PostData $postData): string
     {
