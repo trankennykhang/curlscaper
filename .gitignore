@@ -3,3 +3,5 @@ vendor/*
 composer.lock
 composer.phar
 /vendor
+.php-cs-fixer.cache
+php.xml
