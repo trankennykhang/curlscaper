@@ -11,8 +11,10 @@ $agent = CurlBrowserHelper::chromeAgentString();
 $browser = CurlBrowserHelper::newCurlBrowser($agent);
 $qs = new QueryString();
 
-$rs = $browser->get("http://wp.kupman.local/testtest", $qs);
+$url = "https://www.activ8me.net.au/internet/nbn-fibre-fttp-hfc/";
+//$url = "http://wp.kupman.local/testtest";
 
+$rs = $browser->get($url, $qs);
 if ($rs) {
     // PhpDomDocument @dom
     $dom = DOMParser::fromPhpDomDocument($rs);
