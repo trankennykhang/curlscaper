@@ -19,5 +19,5 @@ if ($rs) {
     $builder = new NodeQueryBuilder();
     $builder->setTag('form');
     $form = $dom->getNode($builder);
-    print_r($form->saveHTML());
+    print_r($form->textContent);
 }
